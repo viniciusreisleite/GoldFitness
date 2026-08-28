@@ -16,7 +16,6 @@ def cleanup_old_videos(allowed_files):
                 print(f"Erro ao remover {file_path}: {e}")
 
 def main():
-    # 1. Salvar os cookies no formato Netscape
     cookies_raw = os.environ.get("INSTAGRAM_COOKIES", "")
     cookie_file = "cookies.txt"
     with open(cookie_file, "w", encoding="utf-8") as f:
@@ -43,7 +42,6 @@ def main():
     target_count = 8
     reels_urls = []
 
-    # 2. Localizar os 8 Reels mais recentes com Playwright
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         context = browser.new_context(
@@ -57,26 +55,30 @@ def main():
         page = context.new_page()
         print(f"Acessando perfil de @{username}...")
 
-        try:
-            page.goto(f"https://www.instagram.com/{username}/reels/", wait_until="domcontentloaded", timeout=45000)
-            time.sleep(5)
+        # Tenta primeiro na aba /reels/, se não achar tenta no perfil direto
+        for target_url in [f"https://www.instagram.com/{username}/reels/", f"https://www.instagram.com/{username}/"]:
+            try:
+                page.goto(target_url, wait_until="domcontentloaded", timeout=45000)
+                time.sleep(6)
 
-            # Rola a página para baixo para carregar os 8 posts
-            page.evaluate("window.scrollBy(0, 1200);")
-            time.sleep(3)
+                for _ in range(3):
+                    page.evaluate("window.scrollBy(0, 1000);")
+                    time.sleep(2)
 
-            links = page.locator("a[href*='/reel/'], a[href*='/p/']").all()
-            for l in links:
-                href = l.get_attribute("href")
-                if href:
-                    full_url = f"https://www.instagram.com{href}" if href.startswith("/") else href
-                    if full_url not in reels_urls:
-                        reels_urls.append(full_url)
-                if len(reels_urls) >= target_count:
+                links = page.locator("a[href*='/reel/'], a[href*='/p/']").all()
+                for l in links:
+                    href = l.get_attribute("href")
+                    if href:
+                        full_url = f"https://www.instagram.com{href}" if href.startswith("/") else href
+                        if full_url not in reels_urls:
+                            reels_urls.append(full_url)
+                    if len(reels_urls) >= target_count:
+                        break
+
+                if len(reels_urls) > 0:
                     break
-
-        except Exception as e:
-            print(f"Erro na navegação: {e}")
+            except Exception as e:
+                print(f"Tentativa em {target_url} falhou: {e}")
 
         browser.close()
 
@@ -85,7 +87,6 @@ def main():
         print("Nenhum post foi identificado.")
         return
 
-    # 3. Baixar estritamente os 8 vídeos e extrair metadados
     posts_data = []
     allowed_videos = [f"video_{i}.mp4" for i in range(1, target_count + 1)]
 
@@ -93,7 +94,6 @@ def main():
         print(f"\n--- Processando Post #{idx}: {reel_url} ---")
         output_filename = f"video_{idx}.mp4"
 
-        # Extrair legenda original
         caption = ""
         try:
             desc_cmd = [
@@ -110,7 +110,6 @@ def main():
         except Exception as e:
             print(f"Erro ao capturar legenda: {e}")
 
-        # Baixar o vídeo (sobrescreve se já existir)
         cmd = [
             "yt-dlp",
             "--cookies", cookie_file,
@@ -131,14 +130,16 @@ def main():
             "updated_at": time.strftime("%d/%m/%Y às %H:%M")
         })
 
-    # 4. Remover vídeos antigos residuais
     cleanup_old_videos(allowed_videos)
 
-    # 5. Salvar o JSON consolidado
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(posts_data, f, ensure_ascii=False, indent=2)
 
-    print("\n✅ Concluído! Mantidos apenas os 8 vídeos da Gold Fitness Centro.")
+    # Remove o arquivo temporário de cookies após a execução
+    if os.path.exists(cookie_file):
+        os.remove(cookie_file)
+
+    print("\n✅ Concluído com sucesso!")
 
 if __name__ == "__main__":
     main()
