@@ -2,7 +2,6 @@ name: Sincronizar Instagram - Gold Fitness Centro
 
 on:
   schedule:
-    # A cada 3 horas
     - cron: '0 */3 * * *'
   workflow_dispatch:
 
@@ -43,10 +42,14 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
+          # Garante que cookies.txt nunca seja comitado
+          rm -f cookies.txt
+          
           git fetch origin main
           git rebase -X theirs origin/main || git rebase --abort || true
           
-          git add -A
+          # Adiciona apenas os arquivos públicos necessários
+          git add video_*.mp4 data.json index.html logo.png .gitignore || true
           
           if ! git diff-index --quiet HEAD; then
             git commit -m "Atualizados os 8 vídeos da Gold Fitness Centro [skip ci]"
