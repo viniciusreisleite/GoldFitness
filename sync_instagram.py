@@ -56,79 +56,59 @@ def main():
             context.add_cookies(playwright_cookies)
 
         page = context.new_page()
-        print(f"Acessando perfil de @{username}...")
+        print(f"Acessando perfil de @{username} (Aba Reels)...")
 
-        target_urls = [
-            f"https://www.instagram.com/{username}/reels/",
-            f"https://www.instagram.com/{username}/"
-        ]
+        try:
+            page.goto(f"https://www.instagram.com/{username}/reels/", wait_until="domcontentloaded", timeout=60000)
+            time.sleep(6)
 
-        for target_url in target_urls:
-            try:
-                print(f"Tentando URL: {target_url}")
-                page.goto(target_url, wait_until="networkidle", timeout=60000)
-                time.sleep(6)
+            for _ in range(5):
+                page.mouse.wheel(0, 1000)
+                time.sleep(2)
 
-                # Rola suavemente para baixo para forçar carregamento
-                for i in range(5):
-                    page.mouse.wheel(0, 800)
-                    time.sleep(2)
+            elements = page.query_selector_all("a[href*='/reel/'], a[href*='/p/']")
+            
+            for el in elements:
+                is_pinned = False
+                try:
+                    pin_elem = el.query_selector("svg[aria-label*='Pin'], svg[aria-label*='Fixado'], svg[title*='Pin'], svg[title*='Fixado']")
+                    if pin_elem:
+                        is_pinned = True
+                except Exception:
+                    pass
 
-                # Busca todos os links de posts e reels
-                elements = page.query_selector_all("a[href*='/reel/'], a[href*='/p/']")
-                for el in elements:
-                    href = el.get_attribute("href")
-                    if href:
-                        full_url = f"https://www.instagram.com{href}" if href.startswith("/") else href
-                        clean_url = full_url.split("?")[0]
-                        if clean_url not in reels_urls:
-                            reels_urls.append(clean_url)
-                    if len(reels_urls) >= target_count:
-                        break
+                if is_pinned:
+                    print("📌 Post fixado ignorado.")
+                    continue
 
+                href = el.get_attribute("href")
+                if href:
+                    full_url = f"https://www.instagram.com{href}" if href.startswith("/") else href
+                    clean_url = full_url.split("?")[0]
+                    if clean_url not in reels_urls:
+                        reels_urls.append(clean_url)
+                
                 if len(reels_urls) >= target_count:
                     break
 
-            except Exception as e:
-                print(f"Aviso durante navegação em {target_url}: {e}")
+        except Exception as e:
+            print(f"Aviso durante navegação: {e}")
 
         browser.close()
 
-    print(f"\nTotal de posts localizados: {len(reels_urls)}")
-    
-    # Se ainda assim não achou com Playwright, tenta busca direta com yt-dlp
-    if not reels_urls:
-        print("Tentando extração direta via yt-dlp flat-playlist...")
-        try:
-            cmd = [
-                "yt-dlp",
-                "--cookies", cookie_file,
-                "--flat-playlist",
-                "--print", "url",
-                f"https://www.instagram.com/{username}/reels/"
-            ]
-            res = subprocess.run(cmd, capture_output=True, text=True)
-            if res.stdout:
-                for line in res.stdout.splitlines():
-                    line = line.strip()
-                    if line and line not in reels_urls:
-                        reels_urls.append(line)
-                    if len(reels_urls) >= target_count:
-                        break
-        except Exception as e:
-            print(f"Erro no fallback yt-dlp: {e}")
+    print(f"\nTotal de posts cronológicos localizados: {len(reels_urls)}")
 
     if not reels_urls:
         print("❌ Nenhum post foi identificado.")
         return
 
-    # Baixa os 8 vídeos e metadados
     posts_data = []
     allowed_videos = [f"video_{i}.mp4" for i in range(1, len(reels_urls[:target_count]) + 1)]
 
     for idx, reel_url in enumerate(reels_urls[:target_count], start=1):
         print(f"\n--- Processando Post #{idx}: {reel_url} ---")
         output_filename = f"video_{idx}.mp4"
+        temp_raw = f"temp_raw_{idx}.mp4"
 
         caption = ""
         try:
@@ -146,23 +126,41 @@ def main():
         except Exception as e:
             print(f"Erro ao capturar legenda: {e}")
 
-        cmd = [
+        cmd_download = [
             "yt-dlp",
             "--cookies", cookie_file,
             "--no-check-certificates",
-            "--merge-output-format", "mp4",
             "-f", "bestvideo+bestaudio/best",
-            "-o", output_filename,
+            "-o", temp_raw,
             "--force-overwrites",
             reel_url
         ]
-        subprocess.run(cmd, capture_output=True, text=True)
+        subprocess.run(cmd_download, capture_output=True, text=True)
+
+        if os.path.exists(temp_raw):
+            cmd_ffmpeg = [
+                "ffmpeg", "-y",
+                "-i", temp_raw,
+                "-vf", "scale='min(720,iw)':-2",
+                "-c:v", "libx264",
+                "-crf", "26",
+                "-preset", "veryfast",
+                "-c:a", "aac",
+                "-b:a", "96k",
+                "-movflags", "+faststart",
+                output_filename
+            ]
+            subprocess.run(cmd_ffmpeg, capture_output=True, text=True)
+            try:
+                os.remove(temp_raw)
+            except Exception:
+                pass
 
         posts_data.append({
             "id": idx,
             "url": reel_url,
             "video_file": output_filename,
-            "caption": caption.strip() if caption else "Gold Fitness Centro - Venha treinar com a melhor estrutura!",
+            "caption": caption.strip() if caption else "Gold Fitness - Venha ser Gold!",
             "updated_at": time.strftime("%d/%m/%Y às %H:%M")
         })
 
@@ -174,7 +172,7 @@ def main():
     if os.path.exists(cookie_file):
         os.remove(cookie_file)
 
-    print("\n✅ Concluído! Todos os vídeos e legendas da Gold Fitness foram gerados.")
+    print("\n✅ Concluído! Vídeos comprimidos em 720p e salvos.")
 
 if __name__ == "__main__":
     main()
