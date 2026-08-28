@@ -43,10 +43,13 @@ def main():
     reels_urls = []
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
+        )
         context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-            viewport={"width": 1280, "height": 900}
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            viewport={"width": 1920, "height": 1080}
         )
         
         if playwright_cookies:
@@ -55,40 +58,73 @@ def main():
         page = context.new_page()
         print(f"Acessando perfil de @{username}...")
 
-        # Tenta primeiro na aba /reels/, se não achar tenta no perfil direto
-        for target_url in [f"https://www.instagram.com/{username}/reels/", f"https://www.instagram.com/{username}/"]:
+        target_urls = [
+            f"https://www.instagram.com/{username}/reels/",
+            f"https://www.instagram.com/{username}/"
+        ]
+
+        for target_url in target_urls:
             try:
-                page.goto(target_url, wait_until="domcontentloaded", timeout=45000)
+                print(f"Tentando URL: {target_url}")
+                page.goto(target_url, wait_until="networkidle", timeout=60000)
                 time.sleep(6)
 
-                for _ in range(3):
-                    page.evaluate("window.scrollBy(0, 1000);")
+                # Rola suavemente para baixo para forçar carregamento
+                for i in range(5):
+                    page.mouse.wheel(0, 800)
                     time.sleep(2)
 
-                links = page.locator("a[href*='/reel/'], a[href*='/p/']").all()
-                for l in links:
-                    href = l.get_attribute("href")
+                # Busca todos os links de posts e reels
+                elements = page.query_selector_all("a[href*='/reel/'], a[href*='/p/']")
+                for el in elements:
+                    href = el.get_attribute("href")
                     if href:
                         full_url = f"https://www.instagram.com{href}" if href.startswith("/") else href
-                        if full_url not in reels_urls:
-                            reels_urls.append(full_url)
+                        clean_url = full_url.split("?")[0]
+                        if clean_url not in reels_urls:
+                            reels_urls.append(clean_url)
                     if len(reels_urls) >= target_count:
                         break
 
-                if len(reels_urls) > 0:
+                if len(reels_urls) >= target_count:
                     break
+
             except Exception as e:
-                print(f"Tentativa em {target_url} falhou: {e}")
+                print(f"Aviso durante navegação em {target_url}: {e}")
 
         browser.close()
 
-    print(f"Total de posts localizados: {len(reels_urls)}")
+    print(f"\nTotal de posts localizados: {len(reels_urls)}")
+    
+    # Se ainda assim não achou com Playwright, tenta busca direta com yt-dlp
     if not reels_urls:
-        print("Nenhum post foi identificado.")
+        print("Tentando extração direta via yt-dlp flat-playlist...")
+        try:
+            cmd = [
+                "yt-dlp",
+                "--cookies", cookie_file,
+                "--flat-playlist",
+                "--print", "url",
+                f"https://www.instagram.com/{username}/reels/"
+            ]
+            res = subprocess.run(cmd, capture_output=True, text=True)
+            if res.stdout:
+                for line in res.stdout.splitlines():
+                    line = line.strip()
+                    if line and line not in reels_urls:
+                        reels_urls.append(line)
+                    if len(reels_urls) >= target_count:
+                        break
+        except Exception as e:
+            print(f"Erro no fallback yt-dlp: {e}")
+
+    if not reels_urls:
+        print("❌ Nenhum post foi identificado.")
         return
 
+    # Baixa os 8 vídeos e metadados
     posts_data = []
-    allowed_videos = [f"video_{i}.mp4" for i in range(1, target_count + 1)]
+    allowed_videos = [f"video_{i}.mp4" for i in range(1, len(reels_urls[:target_count]) + 1)]
 
     for idx, reel_url in enumerate(reels_urls[:target_count], start=1):
         print(f"\n--- Processando Post #{idx}: {reel_url} ---")
@@ -126,7 +162,7 @@ def main():
             "id": idx,
             "url": reel_url,
             "video_file": output_filename,
-            "caption": caption.strip() if caption else "Confira as novidades e treinos da Gold Fitness Centro.",
+            "caption": caption.strip() if caption else "Gold Fitness Centro - Venha treinar com a melhor estrutura!",
             "updated_at": time.strftime("%d/%m/%Y às %H:%M")
         })
 
@@ -135,11 +171,10 @@ def main():
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(posts_data, f, ensure_ascii=False, indent=2)
 
-    # Remove o arquivo temporário de cookies após a execução
     if os.path.exists(cookie_file):
         os.remove(cookie_file)
 
-    print("\n✅ Concluído com sucesso!")
+    print("\n✅ Concluído! Todos os vídeos e legendas da Gold Fitness foram gerados.")
 
 if __name__ == "__main__":
     main()
