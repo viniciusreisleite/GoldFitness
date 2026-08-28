@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mural Digital - Gold Fitness Centro</title>
+  <title>Mural Digital - Gold Fitness</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -89,6 +89,8 @@
     .header-text {
       flex: 1;
     }
+    
+    /* Badge 'Venha Ser Gold' */
     .badge {
       display: inline-block;
       background: linear-gradient(135deg, #ca8a04, #eab308);
@@ -102,6 +104,8 @@
       margin-bottom: 1vh;
       box-shadow: 0 4px 14px rgba(234, 179, 8, 0.35);
     }
+    
+    /* Título 'Gold Fitness' */
     .header h1 {
       font-size: clamp(1.4rem, 2.2vw, 2.6rem);
       font-weight: 900;
@@ -113,7 +117,7 @@
       color: #eab308;
     }
 
-    /* Logo Transparente e Proeminente */
+    /* Logo Transparente */
     .logo-img {
       height: clamp(85px, 14vh, 140px);
       max-width: 260px;
@@ -159,10 +163,10 @@
     <div class="info-section">
       <div class="header">
         <div class="header-text">
-          <span class="badge" id="post-badge">Gold Fitness</span>
-          <h1>Gold Fitness <span>Centro</span></h1>
+          <span class="badge">Venha Ser Gold</span>
+          <h1>Gold <span>Fitness</span></h1>
         </div>
-        <img src="logo.png" alt="Logo Gold Fitness Centro" class="logo-img" onerror="this.style.display='none'">
+        <img src="logo.png" alt="Logo Gold Fitness" class="logo-img" onerror="this.style.display='none'">
       </div>
 
       <div class="caption-container" id="caption-container">
@@ -179,7 +183,6 @@
     const progressBar = document.getElementById('progress');
     const captionContainer = document.getElementById('caption-container');
     const captionText = document.getElementById('caption-text');
-    const postBadge = document.getElementById('post-badge');
 
     const urlParams = new URLSearchParams(window.location.search);
     const postId = parseInt(urlParams.get('post')) || 1;
@@ -223,7 +226,6 @@
         const currentPost = posts.find(p => p.id === postId) || posts[0];
         
         captionText.innerText = currentPost.caption;
-        postBadge.innerText = `Destaque #${postId}`;
 
         requestAnimationFrame(() => {
           autoFitTextExact();
