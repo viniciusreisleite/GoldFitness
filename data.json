@@ -1,50 +1,82 @@
 [
   {
+    "id": 1,
     "type": "image",
+    "url": "https://www.instagram.com/goldfitnesssl.centro/p/DcyS3e7lMrX/",
     "media": "media_1.jpg",
-    "caption": "8 likes, 0 comments - goldfitnesssl.centro on August 31, 2026: \"Potencialize seu treino de bíceps com a máquina de rosca Scott, garantindo mais estabilidade, controle e eficiência em cada repetição. 💪🔥\n\n#GoldFitness #TreinoDeBíceps #RoscaScott #Musculação\". ",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/DcyS3e7lMrX/"
+    "media_file": "media_1.jpg",
+    "video_file": "media_1.jpg",
+    "caption": "Potencialize seu treino de bíceps com a máquina de rosca Scott, garantindo mais estabilidade, controle e eficiência em cada repetição. 💪🔥\n\n#GoldFitness #TreinoDeBíceps #RoscaScott #Musculação\". ",
+    "updated_at": "04/09/2026 as 11:29"
   },
   {
+    "id": 2,
     "type": "image",
+    "url": "https://www.instagram.com/goldfitnesssl.centro/p/Dcv_9OEgU8A/",
     "media": "media_2.jpg",
-    "caption": "36 likes, 3 comments - goldfitnesssl.centro on September 1, 2026: \"🏋️‍♀️✨ 01 de Setembro — Dia do Profissional de Educação Física!\n\nHoje é dia de celebrar quem transforma movimento em saúde, disciplina em resultados e desafios em conquistas. 💪💛\n\nParabéns a todos os profissionais que, com conhecimento, dedicação e paixão, fazem a diferença na vida de tantas pessoas! 🏆\n\nFeliz Dia do Profissional de Educação Física! 💛\n#GoldFitness #DiaDoProfissionalDeEducaçãoFísica #EducaçãoFísica #Fitness #Saúde\". ",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/Dcv_9OEgU8A/"
+    "media_file": "media_2.jpg",
+    "video_file": "media_2.jpg",
+    "caption": "🏋️‍♀️✨ 01 de Setembro — Dia do Profissional de Educação Física!\n\nHoje é dia de celebrar quem transforma movimento em saúde, disciplina em resultados e desafios em conquistas. 💪💛\n\nParabéns a todos os profissionais que, com conhecimento, dedicação e paixão, fazem a diferença na vida de tantas pessoas! 🏆\n\nFeliz Dia do Profissional de Educação Física! 💛\n#GoldFitness #DiaDoProfissionalDeEducaçãoFísica #EducaçãoFísica #Fitness #Saúde\". ",
+    "updated_at": "04/09/2026 as 11:29"
   },
   {
+    "id": 3,
     "type": "video",
+    "url": "https://www.instagram.com/goldfitnesssl.centro/reel/Dcv9bq0AcV5/",
     "media": "media_3.mp4",
-    "caption": "126 likes, 7 comments - goldfitnesssl.centro on September 1, 2026: \"Aqui na Gold, nosso maior compromisso é com você! ❤️\n\nMais comodidade e segurança no seu treino. \n\n#vempraGold\". ",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/reel/Dcv9bq0AcV5/"
+    "media_file": "media_3.mp4",
+    "video_file": "media_3.mp4",
+    "caption": "Aqui na Gold, nosso maior compromisso é com você! ❤️\n\nMais comodidade e segurança no seu treino. \n\n#vempraGold\". ",
+    "updated_at": "04/09/2026 as 11:29"
   },
   {
+    "id": 4,
     "type": "video",
+    "url": "https://www.instagram.com/raphaella.martns/reel/Dcv6DLCRQHu/",
     "media": "media_4.mp4",
-    "caption": "96 likes, 11 comments - raphaella.martns on September 1, 2026: \"1º de Setembro dia do profissional de educação física .\n\nParabéns a todos 👏🏻🏋🏼‍♀️\". ",
-    "url": "https://www.instagram.com/raphaella.martns/reel/Dcv6DLCRQHu/"
+    "media_file": "media_4.mp4",
+    "video_file": "media_4.mp4",
+    "caption": "1º de Setembro dia do profissional de educação física .\n\nParabéns a todos 👏🏻🏋🏼‍♀️\". ",
+    "updated_at": "04/09/2026 as 11:29"
   },
   {
+    "id": 5,
     "type": "image",
+    "url": "https://www.instagram.com/goldfitnesssl.centro/p/DcvuF0xFISm/",
     "media": "media_5.jpg",
-    "caption": "18 likes, 0 comments - goldfitnesssl.centro on August 31, 2026: \"Evolução é resultado de constância, dedicação e força em cada treino. 💪🔥\n\n#Academia #Treino #Foco #Evolução\". ",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/DcvuF0xFISm/"
+    "media_file": "media_5.jpg",
+    "video_file": "media_5.jpg",
+    "caption": "Evolução é resultado de constância, dedicação e força em cada treino. 💪🔥\n\n#Academia #Treino #Foco #Evolução\". ",
+    "updated_at": "04/09/2026 as 11:29"
   },
   {
+    "id": 6,
     "type": "image",
+    "url": "https://www.instagram.com/goldfitnesssl.centro/p/DctHjdhFnba/",
     "media": "media_6.jpg",
-    "caption": "15 likes, 0 comments - goldfitnesssl.centro on August 31, 2026: \"O resultado começa quando você decide não parar. Treine com foco, supere seus limites e construa sua melhor versão todos os dias. 💪🔥\n\n#GoldFitness #FocoNoTreino #VidaSaudável #SuperaçãoDiária\". ",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/DctHjdhFnba/"
+    "media_file": "media_6.jpg",
+    "video_file": "media_6.jpg",
+    "caption": "O resultado começa quando você decide não parar. Treine com foco, supere seus limites e construa sua melhor versão todos os dias. 💪🔥\n\n#GoldFitness #FocoNoTreino #VidaSaudável #SuperaçãoDiária\". ",
+    "updated_at": "04/09/2026 as 11:29"
   },
   {
+    "id": 7,
     "type": "image",
+    "url": "https://www.instagram.com/goldfitnesssl.centro/p/Dcgg1FiAiTT/",
     "media": "media_7.jpg",
-    "caption": "5 likes, 0 comments - goldfitnesssl.centro on August 26, 2026: \"O resultado é construído treino após treino.\nA constância começa hoje.\n\n#GoldFitness #Academia #Treino #Musculação #VidaSaudável\". ",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/Dcgg1FiAiTT/"
+    "media_file": "media_7.jpg",
+    "video_file": "media_7.jpg",
+    "caption": "O resultado é construído treino após treino.\nA constância começa hoje.\n\n#GoldFitness #Academia #Treino #Musculação #VidaSaudável\". ",
+    "updated_at": "04/09/2026 as 11:29"
   },
   {
+    "id": 8,
     "type": "image",
+    "url": "https://www.instagram.com/goldfitnesssl.centro/p/Dcef8EggEKn/",
     "media": "media_8.jpg",
-    "caption": "10 likes, 0 comments - goldfitnesssl.centro on August 25, 2026: \"Na cadeira extensora, o foco principal está no quadríceps, com destaque para músculos como reto femoral, vasto medial e vasto lateral. \n\nUma execução bem controlada ajuda a potencializar o estímulo e tornar o treino mais eficiente.\n\nTreine com consciência. Treine com propósito.\n\n#GoldFitness #TreinoDePernas #CadeiraExtensora #Musculação #Academia\". ",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/Dcef8EggEKn/"
+    "media_file": "media_8.jpg",
+    "video_file": "media_8.jpg",
+    "caption": "Na cadeira extensora, o foco principal está no quadríceps, com destaque para músculos como reto femoral, vasto medial e vasto lateral. \n\nUma execução bem controlada ajuda a potencializar o estímulo e tornar o treino mais eficiente.\n\nTreine com consciência. Treine com propósito.\n\n#GoldFitness #TreinoDePernas #CadeiraExtensora #Musculação #Academia\". ",
+    "updated_at": "04/09/2026 as 11:29"
   }
 ]
