@@ -314,7 +314,7 @@
                 player.play().catch(function() {});
               };
 
-              videoSource.src = midiaArquivo + '?v=' + ts;
+              videoSource.src = midiaArquivo + "?v=" + ts; player.src = midiaArquivo + "?v=" + ts;
               player.load();
               player.play().catch(function(e) { console.log('Autoplay:', e); });
             }
