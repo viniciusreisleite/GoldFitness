@@ -184,7 +184,7 @@
     <div class="video-section">
       <img id="image-player" style="display:none; width:100%; height:100%; object-fit:contain; background-color:#050505;" />
         <video id="player" autoplay playsinline muted loop preload="auto">
-        <source id="video-source" src="video_1.mp4" type="video/mp4">
+        <source id="video-source" src="" type="video/mp4">
       </video>
       <div class="progress-bar-container">
         <div class="progress-bar" id="progress"></div>
@@ -315,7 +315,7 @@
               };
 
               videoSource.src = midiaArquivo + "?v=" + ts; player.src = midiaArquivo + "?v=" + ts;
-              player.load();
+              player.muted = true; player.load();
               player.play().catch(function(e) { console.log('Autoplay:', e); });
             }
           }
