@@ -1,122 +1,32 @@
 [
   {
-    "id": 1,
-    "type": "image",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/DdBw0XPlG12/",
-    "media": "media_1.jpg",
-    "media_file": "media_1.jpg",
-    "video_file": "media_1.jpg",
-    "caption": "Foco, força e constância: cada treino é mais um passo em direção à sua melhor versão. Continue! 💪🔥\n\n#GoldFitness #TreinoDoDia #FocoNoObjetivo #VidaSaudável #Academia\". ",
-    "updated_at": "09/09/2026 as 09:30"
+    "id": "DWg_M9ugA-q",
+    "url": "https://www.instagram.com/goldfitnesssl.centro/reel/DWg_M9ugA-q/",
+    "caption": "Gold Fitness São Lourenço Centro on Instagram: \"Seu treino não para no fim de semana!\nConfira nossos novos horários de sábado e domingo e venha manter o foco 💥\nBora treinar!💪🔥🚀\"",
+    "tipo": "video",
+    "arquivo": "media_1.mp4",
+    "badge": "",
+    "cor": "#ff1744",
+    "perfil": "goldfitnesssl.centro"
   },
   {
-    "id": 2,
-    "type": "image",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/DcyS3e7lMrX/",
-    "media": "media_2.jpg",
-    "media_file": "media_2.jpg",
-    "video_file": "media_2.jpg",
-    "caption": "Potencialize seu treino de bíceps com a máquina de rosca Scott, garantindo mais estabilidade, controle e eficiência em cada repetição. 💪🔥\n\n#GoldFitness #TreinoDeBíceps #RoscaScott #Musculação\". ",
-    "updated_at": "09/09/2026 as 09:30"
-  },
-  {
-    "id": 3,
-    "type": "image",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/Dcv_9OEgU8A/",
-    "media": "media_3.jpg",
-    "media_file": "media_3.jpg",
-    "video_file": "media_3.jpg",
-    "caption": "🏋️‍♀️✨ 01 de Setembro — Dia do Profissional de Educação Física!\n\nHoje é dia de celebrar quem transforma movimento em saúde, disciplina em resultados e desafios em conquistas. 💪💛\n\nParabéns a todos os profissionais que, com conhecimento, dedicação e paixão, fazem a diferença na vida de tantas pessoas! 🏆\n\nFeliz Dia do Profissional de Educação Física! 💛\n#GoldFitness #DiaDoProfissionalDeEducaçãoFísica #EducaçãoFísica #Fitness #Saúde\". ",
-    "updated_at": "09/09/2026 as 09:30"
-  },
-  {
-    "id": 4,
-    "type": "video",
+    "id": "Dcv9bq0AcV5",
     "url": "https://www.instagram.com/goldfitnesssl.centro/reel/Dcv9bq0AcV5/",
-    "media": "media_4.mp4",
-    "media_file": "media_4.mp4",
-    "video_file": "media_4.mp4",
-    "caption": "Aqui na Gold, nosso maior compromisso é com você! ❤️\n\nMais comodidade e segurança no seu treino. \n\n#vempraGold\". ",
-    "updated_at": "09/09/2026 as 09:31"
+    "caption": "Gold Fitness São Lourenço Centro on Instagram: \"Aqui na Gold, nosso maior compromisso é com você! ❤️\n\nMais comodidade e segurança no seu treino. \n\n#vempraGold\"",
+    "tipo": "video",
+    "arquivo": "media_2.mp4",
+    "badge": "",
+    "cor": "#ff1744",
+    "perfil": "goldfitnesssl.centro"
   },
   {
-    "id": 5,
-    "type": "video",
+    "id": "Dcv6DLCRQHu",
     "url": "https://www.instagram.com/raphaella.martns/reel/Dcv6DLCRQHu/",
-    "media": "media_5.mp4",
-    "media_file": "media_5.mp4",
-    "video_file": "media_5.mp4",
-    "caption": "1º de Setembro dia do profissional de educação física .\n\nParabéns a todos 👏🏻🏋🏼‍♀️\". ",
-    "updated_at": "09/09/2026 as 09:31"
-  },
-  {
-    "id": 6,
-    "type": "image",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/DcvuF0xFISm/",
-    "media": "media_6.jpg",
-    "media_file": "media_6.jpg",
-    "video_file": "media_6.jpg",
-    "caption": "Evolução é resultado de constância, dedicação e força em cada treino. 💪🔥\n\n#Academia #Treino #Foco #Evolução\". ",
-    "updated_at": "09/09/2026 as 09:31"
-  },
-  {
-    "id": 7,
-    "type": "image",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/DctHjdhFnba/",
-    "media": "media_7.jpg",
-    "media_file": "media_7.jpg",
-    "video_file": "media_7.jpg",
-    "caption": "O resultado começa quando você decide não parar. Treine com foco, supere seus limites e construa sua melhor versão todos os dias. 💪🔥\n\n#GoldFitness #FocoNoTreino #VidaSaudável #SuperaçãoDiária\". ",
-    "updated_at": "09/09/2026 as 09:31"
-  },
-  {
-    "id": 8,
-    "type": "image",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/Dcgg1FiAiTT/",
-    "media": "media_8.jpg",
-    "media_file": "media_8.jpg",
-    "video_file": "media_8.jpg",
-    "caption": "O resultado é construído treino após treino.\nA constância começa hoje.\n\n#GoldFitness #Academia #Treino #Musculação #VidaSaudável\". ",
-    "updated_at": "09/09/2026 as 09:31"
-  },
-  {
-    "id": 9,
-    "type": "image",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/p/Dcef8EggEKn/",
-    "media": "media_9.jpg",
-    "media_file": "media_9.jpg",
-    "video_file": "media_9.jpg",
-    "caption": "Na cadeira extensora, o foco principal está no quadríceps, com destaque para músculos como reto femoral, vasto medial e vasto lateral. \n\nUma execução bem controlada ajuda a potencializar o estímulo e tornar o treino mais eficiente.\n\nTreine com consciência. Treine com propósito.\n\n#GoldFitness #TreinoDePernas #CadeiraExtensora #Musculação #Academia\". ",
-    "updated_at": "09/09/2026 as 09:31"
-  },
-  {
-    "id": 10,
-    "type": "video",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/reel/DcbeHB6gC0Y/",
-    "media": "media_10.mp4",
-    "media_file": "media_10.mp4",
-    "video_file": "media_10.mp4",
-    "caption": "📍 Vem conhecer a GoldFitness. A gente monta um treino do seu tamanho, no seu ritmo, com acompanhamento de perto. Sua primeira série pode ser hoje. 💛\". ",
-    "updated_at": "09/09/2026 as 09:31"
-  },
-  {
-    "id": 11,
-    "type": "video",
-    "url": "https://www.instagram.com/goldfitnesssl.centro/reel/DcbA6JOtJNg/",
-    "media": "media_11.mp4",
-    "media_file": "media_11.mp4",
-    "video_file": "media_11.mp4",
-    "caption": "Idade, nível de experiência ou objetivo: não importa quem você é, a Gold Fitness é o seu lugar! 🏋️‍♂️✨\n\n​Aqui, oferecemos acompanhamento profissional e um ambiente acolhedor para que todos treinem com segurança, no seu próprio ritmo e com muita disposição.\n\n​E você, já treinou hoje ou vai deixar para amanhã? 💪🔥\n\n​📍 Marque um amigo nos comentários que precisa vir treinar com você esta semana!\". ",
-    "updated_at": "09/09/2026 as 09:31"
-  },
-  {
-    "id": 12,
-    "type": "video",
-    "url": "https://www.instagram.com/raphaella.martns/reel/DcW6oFdPxr3/",
-    "media": "media_12.mp4",
-    "media_file": "media_12.mp4",
-    "video_file": "media_12.mp4",
-    "caption": "Ser forte é luxo impagável 💪🏻\". ",
-    "updated_at": "09/09/2026 as 09:31"
+    "caption": "Raphaella Martins on Instagram: \"1º de Setembro dia do profissional de educação física .\n\nParabéns a todos 👏🏻🏋🏼‍♀️\"",
+    "tipo": "video",
+    "arquivo": "media_3.mp4",
+    "badge": "",
+    "cor": "#ff1744",
+    "perfil": "goldfitnesssl.centro"
   }
 ]
