@@ -7,7 +7,12 @@
     "arquivo": "media_1.mp4",
     "badge": "",
     "cor": "#ff1744",
-    "perfil": "goldfitnesssl.centro"
+    "perfil": "goldfitnesssl.centro",
+    "media": "media_1.mp4",
+    "media_file": "media_1.mp4",
+    "video_file": "media_1.mp4",
+    "type": "video",
+    "text": "Gold Fitness São Lourenço Centro on Instagram: \"Seu treino não para no fim de semana!\nConfira nossos novos horários de sábado e domingo e venha manter o foco 💥\nBora treinar!💪🔥🚀\""
   },
   {
     "id": "Dcv9bq0AcV5",
@@ -17,7 +22,12 @@
     "arquivo": "media_2.mp4",
     "badge": "",
     "cor": "#ff1744",
-    "perfil": "goldfitnesssl.centro"
+    "perfil": "goldfitnesssl.centro",
+    "media": "media_2.mp4",
+    "media_file": "media_2.mp4",
+    "video_file": "media_2.mp4",
+    "type": "video",
+    "text": "Gold Fitness São Lourenço Centro on Instagram: \"Aqui na Gold, nosso maior compromisso é com você! ❤️\n\nMais comodidade e segurança no seu treino. \n\n#vempraGold\""
   },
   {
     "id": "Dcv6DLCRQHu",
@@ -27,6 +37,11 @@
     "arquivo": "media_3.mp4",
     "badge": "",
     "cor": "#ff1744",
-    "perfil": "goldfitnesssl.centro"
+    "perfil": "goldfitnesssl.centro",
+    "media": "media_3.mp4",
+    "media_file": "media_3.mp4",
+    "video_file": "media_3.mp4",
+    "type": "video",
+    "text": "Raphaella Martins on Instagram: \"1º de Setembro dia do profissional de educação física .\n\nParabéns a todos 👏🏻🏋🏼‍♀️\""
   }
 ]
